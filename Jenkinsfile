@@ -15,6 +15,7 @@ pipeline {
             agent {
                 docker {
                     image 'qnib/pytest'
+                    args '-p 7100:7100'
                 }
             }
             steps {
@@ -29,7 +30,8 @@ pipeline {
         stage('Deliver') {
             agent {
                 docker {
-                    image 'cdrx/pyinstaller-linux:python2'
+                    image 'cdrx/pyinstaller-linux:python2'i
+                    args '-p 7100:7100'
                 }
             }
             steps {
